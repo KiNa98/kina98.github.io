@@ -1,17 +1,25 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>서상혁 포트폴리오</title>
+  <link rel="stylesheet" href="style.css">
+</head>
 <body>
 
-  <!-- 메뉴를 여는 버튼 -->
   <button class="menu-button" id="openMenu">INDEX</button>
 
-  <!-- 메뉴가 열릴 때 화면을 덮는 반투명 배경 -->
   <div class="overlay" id="overlay"></div>
 
-  <!-- 왼쪽에서 열리는 사이드 패널 -->
   <aside class="drawer" id="drawer">
     <button class="close-button" id="closeMenu">×</button>
 
     <p class="drawer-label">Portfolio Index</p>
     <h2>서상혁</h2>
+    <p class="drawer-desc">
+      포트폴리오와 기획 분석 글을 정리한 개인 아카이브입니다.
+    </p>
 
     <nav class="drawer-nav">
       <a href="index.html">Home</a>
@@ -23,7 +31,6 @@
     </nav>
   </aside>
 
-  <!-- 실제 첫 화면 -->
   <main class="home-layout">
 
     <section class="intro-area">
@@ -37,7 +44,8 @@
         <h2>세계관과 설정을 분석하는 시나리오 기획자 지망생</h2>
         <p>
           신화·민담·기존 IP의 캐릭터성과 세계관을 분석하고,
-          이를 시나리오·전투·데이터 구조로 재구성하는 작업을 중심으로 포트폴리오를 구성했습니다.
+          이를 시나리오·전투·데이터 구조로 재구성하는 작업을 중심으로
+          포트폴리오를 구성했습니다.
         </p>
 
         <div class="contact-bar" id="contact">
@@ -55,8 +63,10 @@
 
     <section class="featured-area">
       <div class="section-header">
-        <p class="section-label">Featured Portfolio</p>
-        <h2>대표 포트폴리오</h2>
+        <div>
+          <p class="section-label">Featured Portfolio</p>
+          <h2>대표 포트폴리오</h2>
+        </div>
         <p>핵심 강점과 직접 연결되는 대표 작업물입니다.</p>
       </div>
 
@@ -65,21 +75,27 @@
         <article class="featured-item">
           <div class="featured-thumb">Monster</div>
           <h3>쿠치나와카미</h3>
-          <p>아이누 전승을 필드 보스의 외형·패턴·페이즈 구조로 재해석한 기획서입니다.</p>
+          <p>
+            아이누 전승을 필드 보스의 외형·패턴·페이즈 구조로 재해석한 기획서입니다.
+          </p>
           <a href="portfolio-kuchiniwakami.html">상세 보기</a>
         </article>
 
         <article class="featured-item">
           <div class="featured-thumb">Scenario</div>
           <h3>블루 아카이브 서브 시나리오</h3>
-          <p>기존 IP 설정과 캐릭터 리소스를 활용한 이벤트 서브 시나리오 기획입니다.</p>
+          <p>
+            기존 IP 설정과 캐릭터 리소스를 활용한 이벤트 서브 시나리오 기획입니다.
+          </p>
           <a href="#">상세 준비 중</a>
         </article>
 
         <article class="featured-item">
           <div class="featured-thumb">Quest</div>
           <h3>스타레일 퀘스트 기획</h3>
-          <p>후일담 퀘스트와 대사·보상·전투 데이터를 함께 정리한 기획서입니다.</p>
+          <p>
+            후일담 퀘스트와 대사·보상·전투 데이터를 함께 정리한 기획서입니다.
+          </p>
           <a href="#">상세 준비 중</a>
         </article>
 
@@ -88,7 +104,6 @@
 
   </main>
 
-  <!-- 버튼 작동용 JavaScript -->
   <script>
     const openMenu = document.getElementById("openMenu");
     const closeMenu = document.getElementById("closeMenu");
@@ -112,3 +127,4 @@
   </script>
 
 </body>
+</html>
