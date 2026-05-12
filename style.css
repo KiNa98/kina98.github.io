@@ -10,16 +10,20 @@
   --text: #222831;
   --muted: #667085;
 
-  --blue: #2f6fbd;
-  --blue-dark: #1f4f8f;
-  --blue-soft: rgba(47, 111, 189, 0.12);
+  /* 보호막/원형 패널 계열 파란색 */
+  --blue: #6690d7;
+  --blue-dark: #4268a8;
+  --blue-soft: rgba(112, 168, 248, 0.18);
 
-  --drawer-bg: rgba(30, 58, 100, 0.92);
+  /* 열리는 INDEX 패널 색 */
+  --drawer-bg: rgba(40, 76, 135, 0.88);
+
+  /* 작은 장식 포인트 */
   --gold: #c9a646;
-}
 
-html {
-  scroll-behavior: smooth;
+  /* 추가로 써먹을 수 있는 보호막 색 */
+  --shield-blue: rgba(112, 168, 248, 0.35);
+  --shield-border: rgba(207, 229, 255, 0.85);
 }
 
 body {
