@@ -1,231 +1,114 @@
-<!DOCTYPE html>
-<html lang="ko">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>서상혁 포트폴리오</title>
-  <link rel="stylesheet" href="style.css">
-</head>
 <body>
 
-  <div class="layout">
+  <!-- 메뉴를 여는 버튼 -->
+  <button class="menu-button" id="openMenu">INDEX</button>
 
-    <aside class="sidebar">
-      <div class="profile">
-        <p class="label">Narrative Planner</p>
-        <h1>서상혁</h1>
-        <p>
-          세계관과 설정을 분석하고,<br>
-          콘텐츠 구조로 재구성하는<br>
-          시나리오 기획자 지망생
-        </p>
+  <!-- 메뉴가 열릴 때 화면을 덮는 반투명 배경 -->
+  <div class="overlay" id="overlay"></div>
+
+  <!-- 왼쪽에서 열리는 사이드 패널 -->
+  <aside class="drawer" id="drawer">
+    <button class="close-button" id="closeMenu">×</button>
+
+    <p class="drawer-label">Portfolio Index</p>
+    <h2>서상혁</h2>
+
+    <nav class="drawer-nav">
+      <a href="index.html">Home</a>
+      <a href="portfolio.html">Portfolio</a>
+      <a href="analysis.html">Analysis Log</a>
+      <a href="writing.html">Creative Writing</a>
+      <a href="about.html">About / Resume</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </aside>
+
+  <!-- 실제 첫 화면 -->
+  <main class="home-layout">
+
+    <section class="intro-area">
+      <div class="profile-image">
+        Profile Image
       </div>
 
-      <nav class="side-nav">
-        <a href="#home">Home</a>
-        <a href="#strength">Strength</a>
-        <a href="#portfolio">Portfolio</a>
-        <a href="#analysis">Analysis Log</a>
-        <a href="#writing">Creative Writing</a>
-        <a href="#about">About / Resume</a>
-        <a href="#contact">Contact</a>
-      </nav>
-    </aside>
-
-    <main class="content">
-
-      <section id="home" class="section hero-section">
-        <p class="section-label">Home</p>
-        <h2>이야기와 설정을 콘텐츠 구조로 번역하는 기획을 지향합니다.</h2>
+      <div class="profile-text">
+        <p class="section-label">Narrative Planner Portfolio</p>
+        <h1>서상혁</h1>
+        <h2>세계관과 설정을 분석하는 시나리오 기획자 지망생</h2>
         <p>
           신화·민담·기존 IP의 캐릭터성과 세계관을 분석하고,
-          이를 서브 시나리오, 보스 콘텐츠, 퀘스트 데이터, 연출 구조로 정리하는 작업을 중심으로
-          포트폴리오를 구성했습니다.
+          이를 시나리오·전투·데이터 구조로 재구성하는 작업을 중심으로 포트폴리오를 구성했습니다.
         </p>
 
-        <div class="quick-links">
-          <a href="#portfolio">대표 포트폴리오 보기</a>
-          <a href="#analysis">분석 글 보기</a>
-          <a href="#about">자기소개 자료 보기</a>
+        <div class="contact-bar" id="contact">
+          <span>E-mail: tj9234@naver.com</span>
+          <span>GitHub: KiNa98</span>
         </div>
-      </section>
 
-      <section id="strength" class="section">
-        <p class="section-label">Strength</p>
-        <h2>핵심 강점</h2>
-
-        <div class="list-panel">
-          <div class="list-row">
-            <strong>세계관·로어 분석</strong>
-            <span>신화, 민담, 기존 IP 설정을 분석해 콘텐츠 기획 요소로 정리합니다.</span>
-          </div>
-          <div class="list-row">
-            <strong>캐릭터 해석과 시나리오 구성</strong>
-            <span>캐릭터의 말투, 관계성, 감정선을 짧은 장면과 퀘스트 구조로 연결합니다.</span>
-          </div>
-          <div class="list-row">
-            <strong>전투·모션 번역</strong>
-            <span>설정과 상황을 보스 패턴, 전투 페이즈, 모션 의도로 변환합니다.</span>
-          </div>
-          <div class="list-row">
-            <strong>데이터 구조화</strong>
-            <span>퀘스트 조건, 대사, 보상, 전투 흐름을 표와 데이터 단위로 정리합니다.</span>
-          </div>
-          <div class="list-row">
-            <strong>유저 반응 해석</strong>
-            <span>커뮤니티 반응과 플레이 경험을 참고해 콘텐츠 방향을 제안합니다.</span>
-          </div>
+        <div class="document-buttons">
+          <a href="#">이력서</a>
+          <a href="#">자기소개서</a>
+          <a href="#">자기PR문서</a>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <section id="portfolio" class="section">
-        <p class="section-label">Portfolio</p>
+    <section class="featured-area">
+      <div class="section-header">
+        <p class="section-label">Featured Portfolio</p>
         <h2>대표 포트폴리오</h2>
-        <p class="section-desc">
-          정식 기획서와 PDF/PPT 문서를 중심으로 구성한 대표 작업물입니다.
-        </p>
+        <p>핵심 강점과 직접 연결되는 대표 작업물입니다.</p>
+      </div>
 
-        <div class="board-list">
-          <article class="board-item">
-            <div>
-              <p class="tag">보스 콘텐츠 · 세계관 재해석</p>
-              <h3>쿠치나와카미 시나리오·보스 콘텐츠 기획</h3>
-              <p>
-                아이누 전승 「호야우카무이」를 분석해 필드 보스의 외형, 패턴, 페이즈 구조,
-                서브 시나리오로 재구성한 작업입니다.
-              </p>
-            </div>
-            <a href="#">PDF 보기</a>
-          </article>
+      <div class="featured-grid">
 
-          <article class="board-item">
-            <div>
-              <p class="tag">서브 시나리오 · 기존 IP 활용</p>
-              <h3>블루 아카이브 이벤트 서브 시나리오</h3>
-              <p>
-                기존 설정과 캐릭터 리소스를 활용해 이벤트 서브 시나리오, 전투 스테이지,
-                연출 흐름을 기획한 작업입니다.
-              </p>
-            </div>
-            <a href="#">PDF 보기</a>
-          </article>
+        <article class="featured-item">
+          <div class="featured-thumb">Monster</div>
+          <h3>쿠치나와카미</h3>
+          <p>아이누 전승을 필드 보스의 외형·패턴·페이즈 구조로 재해석한 기획서입니다.</p>
+          <a href="portfolio-kuchiniwakami.html">상세 보기</a>
+        </article>
 
-          <article class="board-item">
-            <div>
-              <p class="tag">퀘스트 · 데이터 구조화</p>
-              <h3>붕괴: 스타레일 퀘스트 창작 기획</h3>
-              <p>
-                메인 스토리 이후의 후일담 퀘스트를 가정하고, 시나리오 요약·보상·대사·전투 데이터를
-                함께 정리한 작업입니다.
-              </p>
-            </div>
-            <a href="#">PDF 보기</a>
-          </article>
-        </div>
-      </section>
+        <article class="featured-item">
+          <div class="featured-thumb">Scenario</div>
+          <h3>블루 아카이브 서브 시나리오</h3>
+          <p>기존 IP 설정과 캐릭터 리소스를 활용한 이벤트 서브 시나리오 기획입니다.</p>
+          <a href="#">상세 준비 중</a>
+        </article>
 
-      <section id="analysis" class="section">
-        <p class="section-label">Analysis Log</p>
-        <h2>기획 관점 분석 글</h2>
-        <p class="section-desc">
-          정식 포트폴리오로 문서화하기 전, 게임과 캐릭터를 기획 관점에서 빠르게 분석한 글입니다.
-        </p>
+        <article class="featured-item">
+          <div class="featured-thumb">Quest</div>
+          <h3>스타레일 퀘스트 기획</h3>
+          <p>후일담 퀘스트와 대사·보상·전투 데이터를 함께 정리한 기획서입니다.</p>
+          <a href="#">상세 준비 중</a>
+        </article>
 
-        <div class="board-list">
-          <article class="board-item">
-            <div>
-              <p class="tag">캐릭터 분석</p>
-              <h3>이터널 리턴 캐릭터 분석</h3>
-              <p>
-                실험체의 설정, 말투, 플레이 감각이 캐릭터 인상으로 연결되는 방식을 분석합니다.
-              </p>
-            </div>
-            <a href="#">게시글 준비 중</a>
-          </article>
+      </div>
+    </section>
 
-          <article class="board-item">
-            <div>
-              <p class="tag">신작 게임 리뷰 · 개선안</p>
-              <h3>신작 게임 「이환」 기획 관점 리뷰</h3>
-              <p>
-                초반 플레이 경험을 바탕으로 세계관 전달, 캐릭터 첫인상, 플레이 동선의 장단점과 개선안을 정리합니다.
-              </p>
-            </div>
-            <a href="#">게시글 준비 중</a>
-          </article>
-        </div>
-      </section>
+  </main>
 
-      <section id="writing" class="section">
-        <p class="section-label">Creative Writing</p>
-        <h2>창작 시나리오와 단편</h2>
+  <!-- 버튼 작동용 JavaScript -->
+  <script>
+    const openMenu = document.getElementById("openMenu");
+    const closeMenu = document.getElementById("closeMenu");
+    const drawer = document.getElementById("drawer");
+    const overlay = document.getElementById("overlay");
 
-        <div class="board-list">
-          <article class="board-item">
-            <div>
-              <p class="tag">단편 시나리오</p>
-              <h3>「늪에서 다가오는 신」</h3>
-              <p>
-                호야우카무이 모티브에서 파생된 단편 시나리오입니다.
-                본문과 기획 의도를 함께 정리할 예정입니다.
-              </p>
-            </div>
-            <a href="#">게시글 준비 중</a>
-          </article>
+    openMenu.addEventListener("click", () => {
+      drawer.classList.add("open");
+      overlay.classList.add("open");
+    });
 
-          <article class="board-item">
-            <div>
-              <p class="tag">단편 시나리오</p>
-              <h3>「푸른 깃털의 뱀」</h3>
-              <p>
-                근미래 판타지 세계관을 배경으로, 몬스터 전투와 파티 전술을 액션 중심으로 구성한 단편입니다.
-              </p>
-            </div>
-            <a href="#">게시글 준비 중</a>
-          </article>
-        </div>
-      </section>
+    closeMenu.addEventListener("click", () => {
+      drawer.classList.remove("open");
+      overlay.classList.remove("open");
+    });
 
-      <section id="about" class="section">
-        <p class="section-label">About / Resume</p>
-        <h2>자기소개 자료</h2>
-
-        <div class="board-list compact">
-          <article class="board-item">
-            <div>
-              <h3>이력서</h3>
-              <p>지원용 이력서 PDF입니다.</p>
-            </div>
-            <a href="#">PDF 링크 준비 중</a>
-          </article>
-
-          <article class="board-item">
-            <div>
-              <h3>자기소개서</h3>
-              <p>지원 직무에 맞춰 작성한 자기소개서입니다.</p>
-            </div>
-            <a href="#">PDF 링크 준비 중</a>
-          </article>
-
-          <article class="board-item">
-            <div>
-              <h3>자기PR문서</h3>
-              <p>기획 성향, 강점, 포트폴리오 소개를 정리한 자기PR 문서입니다.</p>
-            </div>
-            <a href="#">PDF 링크 준비 중</a>
-          </article>
-        </div>
-      </section>
-
-      <section id="contact" class="section">
-        <p class="section-label">Contact</p>
-        <h2>연락처</h2>
-        <p>E-mail: tj9234@naver.com</p>
-      </section>
-
-    </main>
-
-  </div>
+    overlay.addEventListener("click", () => {
+      drawer.classList.remove("open");
+      overlay.classList.remove("open");
+    });
+  </script>
 
 </body>
-</html>
