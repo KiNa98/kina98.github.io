@@ -8,60 +8,43 @@
 </head>
 <body>
 
-  <button class="menu-button" id="openMenu">INDEX</button>
+  <main class="page">
 
-  <div class="overlay" id="overlay"></div>
-
-  <aside class="drawer" id="drawer">
-    <button class="close-button" id="closeMenu">×</button>
-
-    <p class="drawer-label">Portfolio Index</p>
-    <h2>서상혁</h2>
-    <p class="drawer-desc">
-      포트폴리오와 기획 분석 글을 정리한 개인 아카이브입니다.
-    </p>
-
-    <nav class="drawer-nav">
-      <a href="index.html">Home</a>
-      <a href="portfolio.html">Portfolio</a>
-      <a href="analysis.html">Analysis Log</a>
-      <a href="writing.html">Creative Writing</a>
-      <a href="about.html">About / Resume</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </aside>
-
-  <main class="home-layout">
-
-    <section class="intro-area">
-      <div class="profile-image">
-        Profile Image
-      </div>
-
-      <div class="profile-text">
-        <p class="section-label">Narrative Planner Portfolio</p>
-        <h1>서상혁</h1>
-        <h2>세계관과 설정을 분석하는 시나리오 기획자 지망생</h2>
-        <p>
-          신화·민담·기존 IP의 캐릭터성과 세계관을 분석하고,
-          이를 시나리오·전투·데이터 구조로 재구성하는 작업을 중심으로
-          포트폴리오를 구성했습니다.
-        </p>
-
-        <div class="contact-bar" id="contact">
-          <span>E-mail: tj9234@naver.com</span>
-          <span>GitHub: KiNa98</span>
+    <!-- 상단 소개 영역 -->
+    <section class="hero">
+      <div class="profile-box">
+        <div class="profile-image">
+          Profile
         </div>
 
-        <div class="document-buttons">
-          <a href="#">이력서</a>
-          <a href="#">자기소개서</a>
-          <a href="#">자기PR문서</a>
+        <div class="profile-text">
+          <p class="section-label">Narrative Planner Portfolio</p>
+          <h1>서상혁</h1>
+          <h2>세계관과 설정을 분석하는 시나리오 기획자 지망생</h2>
+
+          <p>
+            신화·민담·기존 IP의 캐릭터성과 세계관을 분석하고,
+            이를 시나리오·전투·데이터 구조로 재구성하는 작업을 중심으로
+            포트폴리오를 구성했습니다.
+          </p>
+
+          <div class="contact-bar">
+            <span>E-mail: tj9234@naver.com</span>
+            <span>GitHub: KiNa98</span>
+          </div>
+
+          <div class="document-buttons">
+            <a href="resume.html">이력서 요약</a>
+            <a href="#" target="_blank">자기소개서 PDF</a>
+            <a href="#" target="_blank">자기PR문서 PDF</a>
+            <a href="#" target="_blank">분석 블로그</a>
+          </div>
         </div>
       </div>
     </section>
 
-    <section class="featured-area">
+    <!-- 대표 포트폴리오 -->
+    <section class="portfolio-section">
       <div class="section-header">
         <div>
           <p class="section-label">Featured Portfolio</p>
@@ -72,59 +55,200 @@
 
       <div class="featured-grid">
 
-        <article class="featured-item">
-          <div class="featured-thumb">Monster</div>
-          <h3>쿠치나와카미</h3>
+        <article class="portfolio-card featured">
+          <div class="portfolio-thumb">Monster</div>
+          <p class="tag">보스 콘텐츠 · 세계관 재해석</p>
+          <h3>쿠치나와카미 시나리오·보스 콘텐츠 기획</h3>
           <p>
-            아이누 전승을 필드 보스의 외형·패턴·페이즈 구조로 재해석한 기획서입니다.
+            아이누 전승 「호야우카무이」를 분석해 필드 보스의 외형, 패턴, 페이즈 구조,
+            서브 시나리오로 재구성한 기획서입니다.
           </p>
-          <a href="portfolio-kuchiniwakami.html">상세 보기</a>
+
+          <div class="card-links">
+            <a href="#" target="_blank">문서 보기</a>
+            <a href="portfolio-kuchiniwakami.html">상세 페이지</a>
+          </div>
+
+          <details class="memo-panel">
+            <summary>보충 메모</summary>
+            <p>
+              제작 당시에는 보스 설정과 전투 구조를 함께 제시하는 데 집중했습니다.
+              현재 기준으로는 ‘전승 요소 → 전투 기능’의 연결을 더 명확히 보강할 수 있습니다.
+            </p>
+          </details>
         </article>
 
-        <article class="featured-item">
-          <div class="featured-thumb">Scenario</div>
-          <h3>블루 아카이브 서브 시나리오</h3>
+        <article class="portfolio-card featured">
+          <div class="portfolio-thumb">Scenario</div>
+          <p class="tag">서브 시나리오 · 기존 IP 활용</p>
+          <h3>블루 아카이브 이벤트 서브 시나리오</h3>
           <p>
-            기존 IP 설정과 캐릭터 리소스를 활용한 이벤트 서브 시나리오 기획입니다.
+            기존 설정과 캐릭터 리소스를 활용해 이벤트 서브 시나리오, 전투 스테이지,
+            진행 연출 흐름을 기획한 작업입니다.
           </p>
-          <a href="#">상세 준비 중</a>
+
+          <div class="card-links">
+            <a href="#" target="_blank">문서 보기</a>
+            <a href="#">상세 준비 중</a>
+          </div>
+
+          <details class="memo-panel">
+            <summary>보충 메모</summary>
+            <p>
+              기존 IP의 톤과 리소스를 유지하면서, 이벤트 서브 시나리오로 확장하는 방향을 보여주는 작업입니다.
+            </p>
+          </details>
         </article>
 
-        <article class="featured-item">
-          <div class="featured-thumb">Quest</div>
-          <h3>스타레일 퀘스트 기획</h3>
+        <article class="portfolio-card featured">
+          <div class="portfolio-thumb">Quest</div>
+          <p class="tag">퀘스트 · 데이터 구조화</p>
+          <h3>붕괴: 스타레일 퀘스트 창작 기획</h3>
           <p>
-            후일담 퀘스트와 대사·보상·전투 데이터를 함께 정리한 기획서입니다.
+            메인 스토리 이후의 후일담 퀘스트를 가정하고, 시나리오 요약·보상·대사·전투 데이터를
+            함께 정리한 기획서입니다.
           </p>
-          <a href="#">상세 준비 중</a>
+
+          <div class="card-links">
+            <a href="#" target="_blank">문서 보기</a>
+            <a href="#">상세 준비 중</a>
+          </div>
+
+          <details class="memo-panel">
+            <summary>보충 메모</summary>
+            <p>
+              시나리오 흐름과 시스템 데이터를 함께 정리해, 퀘스트 기획 문서로 읽히도록 구성한 작업입니다.
+            </p>
+          </details>
         </article>
 
       </div>
     </section>
 
+    <!-- 그 외 포트폴리오 접기 패널 -->
+    <details class="extra-section">
+      <summary>▼ 그 외 포트폴리오 보기 ▼</summary>
+
+      <div class="extra-grid">
+
+        <article class="portfolio-card">
+          <p class="tag">역기획 · 보스 분석</p>
+          <h3>블루 아카이브 세트의 분노 역기획서</h3>
+          <p>
+            기존 스토리와 캐릭터의 모티브를 분석하고, 보스 몬스터의 설정·디자인·전투 패턴을
+            재구성한 역기획 작업입니다.
+          </p>
+
+          <div class="card-links">
+            <a href="#" target="_blank">문서 보기</a>
+          </div>
+
+          <details class="memo-panel">
+            <summary>보충 메모</summary>
+            <p>
+              기존 결과물을 분석하고, 의도와 결과물이 어떻게 연결되는지 정리하는 역기획 역량을 보여주는 자료입니다.
+            </p>
+          </details>
+        </article>
+
+        <article class="portfolio-card">
+          <p class="tag">TRPG · 탐색형 시나리오</p>
+          <h3>콜 오브 크툴루 TRPG 시나리오 「신의 도시」</h3>
+          <p>
+            실제 교토 지형과 일본 신화, 크툴루 신화를 결합해 탐색형 시나리오로 구성한 작업입니다.
+          </p>
+
+          <div class="card-links">
+            <a href="#" target="_blank">문서 보기</a>
+          </div>
+
+          <details class="memo-panel">
+            <summary>보충 메모</summary>
+            <p>
+              과도하게 수집된 지역 자료를 플레이어 선택지와 탐색 지점으로 전환한 경험을 보여줄 수 있습니다.
+            </p>
+          </details>
+        </article>
+
+        <article class="portfolio-card">
+          <p class="tag">단편 시나리오 · 신화 모티브</p>
+          <h3>단편 시나리오 「늪에서 다가오는 신」</h3>
+          <p>
+            호야우카무이 모티브에서 파생된 단편 시나리오입니다.
+            전투를 단순 토벌이 아닌 의례의 재현 과정으로 구성했습니다.
+          </p>
+
+          <div class="card-links">
+            <a href="#" target="_blank">본문 보기</a>
+          </div>
+
+          <details class="memo-panel">
+            <summary>보충 메모</summary>
+            <p>
+              보스 콘텐츠의 모티브를 서사 콘텐츠로 확장하는 방식과 분위기 중심의 장면 구성력을 보여주는 자료입니다.
+            </p>
+          </details>
+        </article>
+
+        <article class="portfolio-card">
+          <p class="tag">지원 과제형 샘플 · IP 분석</p>
+          <h3>이터널 리턴 IP 분석 기반 미니 시나리오 제안</h3>
+          <p>
+            기존 실험체의 캐릭터성, 플레이 감각, 콘텐츠 구조를 바탕으로 짧은 상황극과
+            시나리오 콘텐츠 방향을 제안한 작업입니다.
+          </p>
+
+          <div class="card-links">
+            <a href="#" target="_blank">문서 보기</a>
+            <a href="#" target="_blank">블로그 분석글</a>
+          </div>
+
+          <details class="memo-panel">
+            <summary>보충 메모</summary>
+            <p>
+              정식 대표 포트폴리오보다는 기존 IP 캐릭터 해석과 콘텐츠 제안 역량을 보여주는 보조 자료로 배치합니다.
+            </p>
+          </details>
+        </article>
+
+        <article class="portfolio-card">
+          <p class="tag">데이터 · 퀘스트 구조</p>
+          <h3>퀘스트·대사·전투 데이터 테이블</h3>
+          <p>
+            퀘스트 조건, 대사, 보상, 전투 발생 조건을 테이블 단위로 정리하고
+            시나리오 흐름과 시스템 요소의 연결을 보여주는 작업입니다.
+          </p>
+
+          <div class="card-links">
+            <a href="#" target="_blank">문서 보기</a>
+          </div>
+
+          <details class="memo-panel">
+            <summary>보충 메모</summary>
+            <p>
+              시나리오를 단순 문장으로 끝내지 않고, 실제 구현 단위에 가깝게 정리하려는 방향을 보여줍니다.
+            </p>
+          </details>
+        </article>
+
+      </div>
+    </details>
+
+    <!-- 블로그 안내 -->
+    <section class="blog-section">
+      <div>
+        <p class="section-label">Analysis Blog</p>
+        <h2>기획 분석 로그</h2>
+        <p>
+          게임 리뷰, 캐릭터 분석, 콘텐츠 개선안, 짧은 기획 노트는 별도 블로그에 정리합니다.
+          포트폴리오 사이트에는 대표 작업물과 선별 링크를 중심으로 배치합니다.
+        </p>
+      </div>
+
+      <a class="blog-button" href="#" target="_blank">블로그로 이동</a>
+    </section>
+
   </main>
-
-  <script>
-    const openMenu = document.getElementById("openMenu");
-    const closeMenu = document.getElementById("closeMenu");
-    const drawer = document.getElementById("drawer");
-    const overlay = document.getElementById("overlay");
-
-    openMenu.addEventListener("click", () => {
-      drawer.classList.add("open");
-      overlay.classList.add("open");
-    });
-
-    closeMenu.addEventListener("click", () => {
-      drawer.classList.remove("open");
-      overlay.classList.remove("open");
-    });
-
-    overlay.addEventListener("click", () => {
-      drawer.classList.remove("open");
-      overlay.classList.remove("open");
-    });
-  </script>
 
 </body>
 </html>
