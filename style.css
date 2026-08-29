@@ -1,22 +1,47 @@
-* {
-  box-sizing: border-box;
-}
+/* =========================================================
+   01. DESIGN TOKENS
+========================================================= */
 
 :root {
-  --bg: #f5f6f7;
+  --bg: #f4f6f7;
   --surface: #ffffff;
-  --surface-soft: #eef1f3;
+  --surface-soft: #eef2f3;
+  --surface-accent: #e5efed;
 
-  --text: #20252b;
-  --text-sub: #66707a;
+  --text: #202930;
+  --text-sub: #66727b;
+  --text-soft: #7a858d;
 
-  --line: #d9dee3;
+  --primary: #263b48;
+  --primary-strong: #1d2e38;
 
-  --primary: #253746;
-  --accent: #547b78;
-  --accent-soft: #e2ecea;
+  --accent: #547d79;
+  --accent-strong: #3e6763;
+  --accent-soft: #dfecea;
 
-  --shadow: 0 8px 24px rgba(28, 38, 47, 0.08);
+  --line: #d7dee2;
+  --line-strong: #c4ced3;
+
+  --shadow-sm: 0 6px 18px rgba(30, 45, 55, 0.06);
+  --shadow-md: 0 14px 36px rgba(30, 45, 55, 0.09);
+
+  --radius-sm: 12px;
+  --radius-md: 18px;
+  --radius-lg: 26px;
+  --radius-xl: 32px;
+
+  --page-width: 1180px;
+}
+
+
+/* =========================================================
+   02. RESET / BASE
+========================================================= */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
 html {
@@ -25,28 +50,62 @@ html {
 
 body {
   margin: 0;
-  font-family: Arial, "Noto Sans KR", sans-serif;
-  color: var(--text);
   background: var(--bg);
-  line-height: 1.6;
+  color: var(--text);
+
+  font-family:
+    Pretendard,
+    "Noto Sans KR",
+    "Apple SD Gothic Neo",
+    "Malgun Gothic",
+    Arial,
+    sans-serif;
+
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
 }
 
-/* 전체 페이지 */
+img {
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+}
+
+button,
+a,
+summary {
+  -webkit-tap-highlight-color: transparent;
+}
+
+::selection {
+  background: var(--accent-soft);
+  color: var(--primary-strong);
+}
+
+
+/* =========================================================
+   03. PAGE LAYOUT
+========================================================= */
+
 .page {
-  width: min(1180px, calc(100% - 72px));
+  width: min(var(--page-width), calc(100% - 72px));
   margin: 0 auto;
-  padding: 48px 0;
+  padding: 52px 0 40px;
 }
 
-/* 공통 텍스트 */
-.section-label {
-  margin: 0 0 10px;
-  color: var(--blue);
-  font-size: 12px;
-  font-weight: 800;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
+.hero,
+.current-project-section,
+.portfolio-section,
+.extra-section {
+  margin-bottom: 30px;
 }
+
+
+/* =========================================================
+   04. TYPOGRAPHY
+========================================================= */
 
 h1,
 h2,
@@ -55,329 +114,682 @@ p {
   word-break: keep-all;
 }
 
+h1,
+h2,
+h3 {
+  color: var(--text);
+  letter-spacing: -0.025em;
+}
+
 h1 {
-  margin: 0 0 8px;
-  font-size: 42px;
-  line-height: 1.15;
+  margin: 0 0 10px;
+  font-size: clamp(2.25rem, 4vw, 3rem);
+  line-height: 1.12;
 }
 
 h2 {
-  margin: 0 0 12px;
-  font-size: 30px;
-  line-height: 1.3;
-}
-
-h3 {
-  margin: 0 0 10px;
-  font-size: 20px;
+  margin: 0;
+  font-size: clamp(1.65rem, 3vw, 2rem);
   line-height: 1.35;
 }
 
+h3 {
+  margin: 0 0 12px;
+  font-size: 1.22rem;
+  line-height: 1.45;
+}
+
 p {
-  color: var(--muted);
-}
-
-/* 상단 소개 */
-.hero {
-  margin-bottom: 28px;
-}
-
-.profile-box {
-  display: grid;
-  grid-template-columns: 320px 1fr;
-  gap: 32px;
-  align-items: stretch;
-}
-
-.profile-image {
-  width: 320px;
-  min-height: 0 !important;
-  height: fit-content !important;
-  align-self: flex-start;
-  padding: 0 !important;
-  overflow: hidden;
-}
-
-.profile-image img {
-  width: 100%;
-  height: auto !important;
-  display: block;
-  object-fit: unset !important;
-  object-position: unset !important;
-}
-
-.profile-text {
-  border: 1px solid var(--line);
-  border-radius: 34px;
-  background: var(--paper);
-  padding: 42px 48px;
-
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.profile-text h2 {
-  font-size: 24px;
-}
-
-.profile-text p {
-  max-width: 760px;
   margin: 0;
+  color: var(--text-sub);
 }
 
-/* 연락처 바 */
-.contact-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 12px;
+.section-label {
+  margin: 0 0 7px;
+  color: var(--accent-strong);
 
-  margin-top: 24px;
-  max-width: 720px;
-}
-
-.contact-grid a,
-.contact-item {
-  display: block;
-
-  padding: 12px 14px;
-  border-radius: 16px;
-
-  background: var(--blue-soft);
-  border: 1px solid var(--shield-border);
-  box-shadow: 0 0 12px rgba(112, 168, 248, 0.16);
-
-  color: var(--blue-dark);
-  text-decoration: none;
-}
-
-.contact-grid strong,
-.contact-item strong {
-  display: block;
-  margin-bottom: 4px;
-
-  font-size: 12px;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-
-.contact-grid span,
-.contact-item span {
-  display: block;
-  color: var(--text);
-  font-size: 13px;
-  font-weight: 700;
-  word-break: break-all;
-}
-
-.contact-grid a:hover {
-  border-color: var(--blue);
-  background: rgba(112, 168, 248, 0.24);
-}
-
-/* 문서 버튼 */
-.document-buttons {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 14px;
-  margin-top: 26px;
-}
-
-.document-buttons a {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-
-  min-width: 120px;
-  padding: 12px 16px;
-
-  border: 1px solid var(--line);
-  border-radius: 16px;
-
-  background: var(--paper-soft);
-  color: var(--text);
-  text-decoration: none;
+  font-size: 0.76rem;
   font-weight: 800;
-}
-
-.document-buttons a:hover {
-  border-color: var(--blue);
-  color: var(--blue);
-}
-
-/* 대표 포트폴리오 섹션 */
-.portfolio-section {
-  border: 1px solid var(--line);
-  border-radius: 30px;
-  background: var(--paper);
-  padding: 30px 34px 34px;
-  margin-bottom: 28px;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
 }
 
 .section-header {
   display: flex;
   align-items: end;
   justify-content: space-between;
-  gap: 24px;
+  gap: 32px;
+
   margin-bottom: 24px;
 }
 
-.section-header p {
-  margin: 0;
+.section-header > p {
+  max-width: 520px;
+  text-align: right;
+  font-size: 0.94rem;
 }
 
-/* 대표 3개 */
+
+/* =========================================================
+   05. HERO / PROFILE
+========================================================= */
+
+.profile-box {
+  display: grid;
+  grid-template-columns: 300px minmax(0, 1fr);
+  gap: 28px;
+  align-items: stretch;
+}
+
+.profile-image {
+  overflow: hidden;
+  border-radius: var(--radius-xl);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow-sm);
+}
+
+.profile-image img {
+  width: 100%;
+  height: 100%;
+  min-height: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: center top;
+}
+
+.profile-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  padding: 40px 44px;
+
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-sm);
+}
+
+.profile-text h2 {
+  max-width: 820px;
+  margin-bottom: 18px;
+  color: var(--primary);
+  font-size: clamp(1.25rem, 2vw, 1.55rem);
+}
+
+.hero-description {
+  max-width: 820px;
+  font-size: 0.98rem;
+}
+
+
+/* =========================================================
+   06. CONTACT / DOCUMENT BUTTONS
+========================================================= */
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 320px);
+  gap: 10px;
+  margin-top: 24px;
+}
+
+.contact-grid a {
+  display: block;
+  padding: 11px 14px;
+
+  background: var(--surface-soft);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+
+  text-decoration: none;
+  transition:
+    border-color 0.18s ease,
+    background 0.18s ease,
+    transform 0.18s ease;
+}
+
+.contact-grid a:hover {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+  transform: translateY(-1px);
+}
+
+.contact-grid strong {
+  display: block;
+  margin-bottom: 2px;
+
+  color: var(--accent-strong);
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.contact-grid span {
+  display: block;
+  color: var(--text);
+  font-size: 0.84rem;
+  font-weight: 700;
+  word-break: break-all;
+}
+
+.document-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.document-buttons a,
+.card-links a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 40px;
+  padding: 9px 14px;
+
+  color: var(--primary);
+  background: var(--surface);
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+
+  text-decoration: none;
+  font-size: 0.84rem;
+  font-weight: 800;
+
+  transition:
+    color 0.18s ease,
+    border-color 0.18s ease,
+    background 0.18s ease,
+    transform 0.18s ease;
+}
+
+.document-buttons a:hover,
+.card-links a:hover {
+  color: #ffffff;
+  background: var(--accent-strong);
+  border-color: var(--accent-strong);
+  transform: translateY(-1px);
+}
+
+
+/* =========================================================
+   07. CURRENT PROJECT
+========================================================= */
+
+.current-project-section {
+  padding: 32px;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(223, 236, 234, 0.72),
+      rgba(255, 255, 255, 0.78) 40%,
+      rgba(255, 255, 255, 0.96)
+    );
+
+  border: 1px solid var(--line);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-sm);
+}
+
+.current-project-header {
+  margin-bottom: 24px;
+}
+
+.current-project-card {
+  display: grid;
+  grid-template-columns: minmax(0, 1.08fr) minmax(360px, 0.92fr);
+  gap: 0;
+
+  overflow: hidden;
+
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+}
+
+.current-project-image {
+  min-height: 390px;
+  background: var(--surface-soft);
+}
+
+.current-project-image img {
+  width: 100%;
+  height: 100%;
+  min-height: 390px;
+  display: block;
+  object-fit: cover;
+  object-position: center;
+}
+
+.current-project-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  padding: 34px 36px;
+}
+
+.project-status-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+
+  margin-bottom: 14px;
+}
+
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+
+  padding: 5px 9px;
+
+  color: #ffffff;
+  background: var(--accent-strong);
+  border-radius: 999px;
+
+  font-size: 0.68rem;
+  font-weight: 900;
+  letter-spacing: 0.1em;
+}
+
+.project-category {
+  color: var(--text-soft);
+  font-size: 0.76rem;
+  font-weight: 700;
+}
+
+.current-project-content h3 {
+  margin-bottom: 14px;
+  color: var(--primary-strong);
+  font-size: clamp(1.55rem, 2.3vw, 2rem);
+}
+
+.current-project-description {
+  margin-bottom: 14px;
+  color: var(--text);
+}
+
+.current-project-progress {
+  padding-top: 14px;
+  border-top: 1px solid var(--line);
+
+  color: var(--text-sub);
+  font-size: 0.9rem;
+}
+
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+
+  margin-top: 20px;
+}
+
+.project-tags span {
+  display: inline-flex;
+  align-items: center;
+
+  padding: 6px 10px;
+
+  color: var(--accent-strong);
+  background: var(--accent-soft);
+  border: 1px solid rgba(84, 125, 121, 0.2);
+  border-radius: 999px;
+
+  font-size: 0.74rem;
+  font-weight: 800;
+}
+
+
+/* =========================================================
+   08. CURRENT PROJECT RESOURCES
+========================================================= */
+
+.project-resource-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+
+  margin-top: 18px;
+}
+
+.resource-panel {
+  overflow: hidden;
+
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+}
+
+.resource-panel > summary {
+  list-style: none;
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+
+  min-height: 78px;
+  padding: 16px 18px;
+
+  transition: background 0.18s ease;
+}
+
+.resource-panel > summary::-webkit-details-marker {
+  display: none;
+}
+
+.resource-panel > summary:hover {
+  background: var(--surface-soft);
+}
+
+.resource-panel[open] > summary {
+  background: var(--surface);
+  border-bottom: 1px solid var(--line);
+}
+
+.resource-panel summary > span:first-child {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.resource-panel summary strong {
+  color: var(--primary);
+  font-size: 0.95rem;
+}
+
+.resource-panel summary small {
+  color: var(--text-soft);
+  font-size: 0.76rem;
+}
+
+.summary-action {
+  flex: 0 0 auto;
+
+  padding: 5px 9px;
+
+  color: var(--accent-strong);
+  background: var(--accent-soft);
+  border-radius: 999px;
+
+  font-size: 0.7rem;
+  font-weight: 800;
+}
+
+.resource-panel[open] .summary-action {
+  font-size: 0;
+}
+
+.resource-panel[open] .summary-action::after {
+  content: "접기";
+  font-size: 0.7rem;
+}
+
+.resource-panel-body {
+  padding: 18px;
+}
+
+.pdf-viewer {
+  width: 100%;
+  height: 640px;
+  display: block;
+
+  background: var(--surface-soft);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+}
+
+.resource-note {
+  margin-top: 10px;
+  color: var(--text-soft);
+  font-size: 0.78rem;
+}
+
+.resource-note a {
+  color: var(--accent-strong);
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.resource-note a:hover {
+  text-decoration: underline;
+}
+
+.project-memo {
+  width: 100%;
+  min-height: 560px;
+  max-height: 760px;
+  overflow: auto;
+
+  margin: 0;
+  padding: 22px;
+
+  color: var(--text);
+  background: #fbfcfc;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+
+  font-family:
+    "Noto Sans KR",
+    "Apple SD Gothic Neo",
+    "Malgun Gothic",
+    sans-serif;
+
+  font-size: 0.9rem;
+  line-height: 1.85;
+  white-space: pre-wrap;
+  word-break: keep-all;
+}
+
+
+/* =========================================================
+   09. FEATURED PORTFOLIO
+========================================================= */
+
+.portfolio-section {
+  padding: 30px 32px 34px;
+
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-sm);
+}
+
 .featured-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 22px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
 }
 
-/* 카드 공통 */
+
+/* =========================================================
+   10. PORTFOLIO CARDS
+========================================================= */
+
 .portfolio-card {
-  border: 1px solid var(--line);
-  border-radius: 22px;
-  background: var(--paper-soft);
-  padding: 18px;
+  min-width: 0;
 
   display: flex;
   flex-direction: column;
+
+  padding: 18px;
+
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
+}
+
+.portfolio-card:hover {
+  border-color: var(--line-strong);
+  box-shadow: var(--shadow-sm);
+  transform: translateY(-2px);
 }
 
 .portfolio-card.featured {
-  min-height: 350px;
+  background: #fcfdfd;
 }
 
 .portfolio-thumb {
-  height: 160px;
-  border-radius: 18px;
-  background: linear-gradient(
-    135deg,
-    rgba(112, 168, 248, 0.32),
-    rgba(102, 144, 215, 0.52)
-  );
-  border: 1px solid rgba(207, 229, 255, 0.75);
-  box-shadow: inset 0 0 18px rgba(207, 229, 255, 0.35);
+  height: 170px;
+  margin-bottom: 16px;
 
-  color: #ffffff;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  font-weight: 900;
-  letter-spacing: 0.04em;
-  margin-bottom: 18px;
-}
-
-.portfolio-thumb.image-thumb {
-  padding: 0;
   overflow: hidden;
-  background: #e9eef5;
+  background: var(--surface-soft);
+  border: 1px solid var(--line);
+  border-radius: 14px;
 }
 
-.portfolio-thumb.image-thumb img {
+.portfolio-thumb img {
   width: 100%;
   height: 100%;
+  display: block;
   object-fit: cover;
   object-position: center;
-  display: block;
-}
-  border: 1px solid rgba(207, 229, 255, 0.75);
-  box-shadow: inset 0 0 18px rgba(207, 229, 255, 0.35);
-
-  color: #ffffff;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  font-weight: 900;
-  letter-spacing: 0.04em;
-  margin-bottom: 18px;
 }
 
 .tag {
   margin: 0 0 8px;
-  color: var(--blue-dark);
-  font-size: 13px;
+
+  color: var(--accent-strong);
+  font-size: 0.76rem;
   font-weight: 800;
 }
 
-.portfolio-card p {
-  margin: 0 0 16px;
-  font-size: 14px;
+.portfolio-card > p:not(.tag) {
+  margin-bottom: 16px;
+  font-size: 0.88rem;
 }
 
 .card-links {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 8px;
+
   margin-top: auto;
+  padding-top: 2px;
 }
 
 .card-links a {
-  color: var(--blue);
-  text-decoration: none;
-  font-weight: 800;
+  min-height: 36px;
+  padding: 7px 11px;
+
+  background: var(--surface-soft);
+
+  font-size: 0.76rem;
 }
 
-.card-links a:hover {
-  color: var(--blue-dark);
-}
 
-/* 보충 메모 */
+/* =========================================================
+   11. MEMO / IMPROVEMENT PANEL
+========================================================= */
+
 .memo-panel {
   margin-top: 16px;
   padding-top: 12px;
+
   border-top: 1px solid var(--line);
 }
 
 .memo-panel summary {
   cursor: pointer;
-  color: var(--blue-dark);
-  font-size: 14px;
+  list-style: none;
+
+  color: var(--text-soft);
+  font-size: 0.78rem;
   font-weight: 800;
 }
 
-.memo-panel p {
-  margin: 10px 0 0;
-  padding: 12px 14px;
-  border-radius: 14px;
-  background: rgba(112, 168, 248, 0.10);
-  border: 1px solid rgba(207, 229, 255, 0.55);
+.memo-panel summary::-webkit-details-marker {
+  display: none;
 }
 
-/* 그 외 포트폴리오 펼침 영역 */
+.memo-panel summary::before {
+  content: "＋ ";
+  color: var(--accent);
+}
+
+.memo-panel[open] summary::before {
+  content: "－ ";
+}
+
+.memo-panel p {
+  margin-top: 10px;
+  padding: 12px 14px;
+
+  color: var(--text-sub);
+  background: var(--surface-soft);
+  border-left: 3px solid var(--accent);
+  border-radius: 8px;
+
+  font-size: 0.8rem !important;
+}
+
+
+/* =========================================================
+   12. EXTRA PORTFOLIO
+========================================================= */
+
 .extra-section {
-  border: 1px solid var(--line);
-  border-radius: 30px;
-  background: var(--paper);
-  padding: 0;
-  margin-bottom: 28px;
   overflow: hidden;
+
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-sm);
 }
 
 .extra-section > summary {
   list-style: none;
   cursor: pointer;
-  padding: 24px 30px;
-  text-align: center;
 
-  background: linear-gradient(
-    135deg,
-    rgba(112, 168, 248, 0.18),
-    rgba(102, 144, 215, 0.28)
-  );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
 
-  color: var(--blue-dark);
-  font-size: 20px;
-  font-weight: 900;
-  letter-spacing: 0.04em;
+  min-height: 82px;
+  padding: 20px 28px;
+
+  color: var(--primary);
+  background:
+    linear-gradient(
+      135deg,
+      rgba(229, 239, 237, 0.9),
+      rgba(244, 246, 247, 0.8)
+    );
+
+  transition: background 0.18s ease;
 }
 
 .extra-section > summary::-webkit-details-marker {
   display: none;
+}
+
+.extra-section > summary:hover {
+  background: var(--accent-soft);
+}
+
+.extra-section > summary span {
+  font-size: 1.08rem;
+  font-weight: 900;
+}
+
+.extra-section > summary small {
+  color: var(--text-soft);
+  font-size: 0.74rem;
 }
 
 .extra-section[open] > summary {
@@ -386,57 +798,106 @@ p {
 
 .extra-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 18px;
-  padding: 28px 30px 30px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+
+  padding: 24px;
 }
 
-/* 블로그 안내 */
-.blog-section {
-  border: 1px solid var(--line);
-  border-radius: 30px;
-  background: var(--paper);
-  padding: 30px 34px;
-
-  display: grid;
-  grid-template-columns: 1fr auto;
-  gap: 24px;
-  align-items: center;
+.extra-grid .portfolio-card {
+  background: #fcfdfd;
 }
 
-.blog-section p {
-  margin: 0;
+
+/* =========================================================
+   13. FOOTER
+========================================================= */
+
+.site-footer {
+  padding: 10px 0 4px;
+  text-align: center;
 }
 
-.blog-button {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-
-  min-width: 150px;
-  padding: 14px 18px;
-
-  border-radius: 999px;
-  background: var(--blue);
-  color: #ffffff;
-  text-decoration: none;
-  font-weight: 900;
-
-  box-shadow: 0 0 18px rgba(112, 168, 248, 0.45);
+.site-footer p {
+  color: var(--text-soft);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 
-.blog-button:hover {
-  background: var(--blue-dark);
+
+/* =========================================================
+   14. ACCESSIBILITY
+========================================================= */
+
+a:focus-visible,
+summary:focus-visible {
+  outline: 3px solid rgba(84, 125, 121, 0.26);
+  outline-offset: 3px;
 }
 
-/* 모바일 대응 */
-@media (max-width: 980px) {
-  .contact-grid {
-  grid-template-columns: 1fr;
-}
+
+/* =========================================================
+   15. RESPONSIVE
+========================================================= */
+
+@media (max-width: 1020px) {
+
   .page {
-    width: min(100% - 32px, 760px);
-    padding: 32px 0;
+    width: min(860px, calc(100% - 40px));
+    padding-top: 34px;
+  }
+
+  .profile-box {
+    grid-template-columns: 240px minmax(0, 1fr);
+  }
+
+  .profile-text {
+    padding: 32px;
+  }
+
+  .current-project-card {
+    grid-template-columns: 1fr;
+  }
+
+  .current-project-image,
+  .current-project-image img {
+    min-height: 320px;
+  }
+
+  .project-resource-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .featured-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .featured-grid .portfolio-card {
+    display: grid;
+    grid-template-columns: 240px minmax(0, 1fr);
+    column-gap: 20px;
+  }
+
+  .featured-grid .portfolio-thumb {
+    grid-row: 1 / span 5;
+    height: 100%;
+    min-height: 220px;
+    margin-bottom: 0;
+  }
+
+  .featured-grid .memo-panel {
+    grid-column: 2;
+  }
+
+}
+
+
+@media (max-width: 760px) {
+
+  .page {
+    width: min(100% - 28px, 620px);
+    padding-top: 22px;
   }
 
   .profile-box {
@@ -444,67 +905,149 @@ p {
   }
 
   .profile-image {
-    min-height: 240px;
+    max-height: 460px;
+  }
+
+  .profile-image img {
+    min-height: 0;
+    max-height: 460px;
   }
 
   .profile-text {
-    padding: 32px 28px;
-  }
-
-  .featured-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .extra-grid {
-    grid-template-columns: 1fr;
+    padding: 26px 24px;
   }
 
   .section-header {
     display: block;
   }
 
-  .section-header h2 {
-    margin-bottom: 8px;
+  .section-header > p {
+    max-width: none;
+    margin-top: 8px;
+    text-align: left;
   }
 
-  .blog-section {
-    grid-template-columns: 1fr;
-  }
-}
-
-@media (max-width: 560px) {
-  h1 {
-    font-size: 34px;
-  }
-
-  h2 {
-    font-size: 25px;
-  }
-
-  .profile-text h2 {
-    font-size: 21px;
-  }
-
-  .contact-bar {
-    border-radius: 18px;
-  }
-
-  .document-buttons a,
-  .blog-button {
-    width: 100%;
-  }
-
-  .portfolio-section,
-  .blog-section {
+  .current-project-section,
+  .portfolio-section {
     padding: 24px 20px;
   }
 
-  .extra-section > summary {
-    padding: 22px 18px;
-    font-size: 17px;
+  .current-project-content {
+    padding: 26px 22px;
+  }
+
+  .current-project-image,
+  .current-project-image img {
+    min-height: 250px;
+  }
+
+  .featured-grid .portfolio-card {
+    display: flex;
+  }
+
+  .featured-grid .portfolio-thumb {
+    height: 190px;
+    min-height: 0;
+    margin-bottom: 16px;
+  }
+
+  .featured-grid .memo-panel {
+    grid-column: auto;
   }
 
   .extra-grid {
-    padding: 22px 20px;
+    grid-template-columns: 1fr;
+    padding: 18px;
   }
+
+  .pdf-viewer {
+    height: 520px;
+  }
+
+  .project-memo {
+    min-height: 480px;
+  }
+
+}
+
+
+@media (max-width: 520px) {
+
+  .page {
+    width: calc(100% - 20px);
+  }
+
+  .hero,
+  .current-project-section,
+  .portfolio-section,
+  .extra-section {
+    margin-bottom: 18px;
+  }
+
+  .profile-text {
+    border-radius: 22px;
+  }
+
+  .profile-image {
+    border-radius: 22px;
+  }
+
+  .current-project-section,
+  .portfolio-section,
+  .extra-section {
+    border-radius: 22px;
+  }
+
+  .document-buttons a {
+    flex: 1 1 calc(50% - 10px);
+  }
+
+  .current-project-card {
+    border-radius: 18px;
+  }
+
+  .current-project-content {
+    padding: 22px 18px;
+  }
+
+  .resource-panel > summary {
+    align-items: flex-start;
+  }
+
+  .summary-action {
+    margin-top: 2px;
+  }
+
+  .pdf-viewer {
+    height: 430px;
+  }
+
+  .project-memo {
+    min-height: 420px;
+    max-height: 620px;
+    padding: 16px;
+    font-size: 0.84rem;
+  }
+
+  .extra-section > summary {
+    flex-direction: column;
+    gap: 2px;
+  }
+
+}
+
+
+/* =========================================================
+   16. REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition: none !important;
+  }
+
 }
