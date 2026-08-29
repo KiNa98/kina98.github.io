@@ -3,21 +3,20 @@
 }
 
 :root {
-  --bg: #f4f5f3;
-  --paper: #ffffff;
-  --paper-soft: #fafbfc;
-  --line: #d9dde3;
-  --text: #222831;
-  --muted: #667085;
+  --bg: #f5f6f7;
+  --surface: #ffffff;
+  --surface-soft: #eef1f3;
 
-  --blue: #6690d7;
-  --blue-dark: #4268a8;
-  --blue-soft: rgba(112, 168, 248, 0.18);
+  --text: #20252b;
+  --text-sub: #66707a;
 
-  --shield-blue: rgba(112, 168, 248, 0.35);
-  --shield-border: rgba(207, 229, 255, 0.85);
+  --line: #d9dee3;
 
-  --gold: #c9a646;
+  --primary: #253746;
+  --accent: #547b78;
+  --accent-soft: #e2ecea;
+
+  --shadow: 0 8px 24px rgba(28, 38, 47, 0.08);
 }
 
 html {
