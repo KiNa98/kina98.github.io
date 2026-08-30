@@ -62,10 +62,10 @@
 
 <!-- =========================================================
      2. CURRENT PROJECT
-     - 아래 3개 파일을 같은 이름으로 업로드하면 자동 반영됩니다.
+     - 아래 파일 경로를 사용합니다.
 
-       assets/images/current-project.jpg
-       assets/docs/current-project-concept.pdf
+       assets/images/ARGO-project.jpg
+       assets/docs/ARGO-project-concept.pdf
        assets/docs/Project ARGO NOTE.pdf
 ========================================================== -->
 
@@ -160,97 +160,43 @@
 
     <!-- =========================
          컨셉 아트 PDF
+         - 별도 탭의 브라우저 PDF 뷰어에서 열립니다.
     ========================== -->
 
-    <details
-      class="resource-panel"
-      id="conceptPanel"
-    >
-
-      <summary>
-
-        <span>
-          <strong>컨셉 아트</strong>
-
-          <small>
-            배경·지역·캐릭터의
-            현재 시각적 방향
-          </small>
-        </span>
-
-        <span class="summary-action">
-          펼쳐보기
-        </span>
-
-      </summary>
-
+    <div class="resource-panel">
 
       <div class="resource-panel-body">
 
+        <p class="section-label">
+          Concept Art
+        </p>
 
-        <div
-          class="resource-loading"
-          id="conceptLoading"
-        >
-          컨셉 아트 자료를 확인하는 중입니다.
+        <h3>
+          컨셉 아트
+        </h3>
+
+        <p>
+          배경·지역·캐릭터 등 현재 프로젝트의
+          시각적 방향을 정리한 컨셉 아트 슬라이드입니다.
+        </p>
+
+        <div class="document-buttons">
+          <a
+            href="assets/docs/ARGO-project-concept.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            컨셉 아트 PDF 열기
+          </a>
         </div>
 
-
-        <div
-          class="resource-empty"
-          id="conceptEmpty"
-          hidden
-        >
-
-          <strong>
-            컨셉 아트 자료 준비 중
-          </strong>
-
-          <p>
-            <code>
-              assets/docs/ARGO-project-concept.pdf
-            </code>
-
-            파일을 업로드하면
-            이 영역에서 바로 열립니다.
-          </p>
-
-        </div>
-
-
-        <div
-          id="conceptReady"
-          hidden
-        >
-
-          <iframe
-            class="pdf-viewer"
-            id="conceptViewer"
-            title="현재 프로젝트 컨셉 아트"
-            loading="lazy"
-          ></iframe>
-
-
-          <p class="resource-note">
-
-            브라우저에서 PDF가 표시되지 않는 경우
-
-            <a
-              href="assets/docs/ARGO-project-concept.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              새 탭에서 열기
-            </a>
-
-          </p>
-
-        </div>
-
+        <p class="resource-note">
+          버튼을 누르면 새 탭의 브라우저 PDF 뷰어에서 슬라이드 전체를 열람할 수 있습니다.
+        </p>
 
       </div>
 
-    </details>
+    </div>
 
 
 
@@ -566,18 +512,11 @@
 
 
   <!-- =========================================================
-       CURRENT PROJECT RESOURCE LOADER
-       파일이 없으면 '준비 중' 상태,
-       나중에 같은 경로/이름으로 업로드하면 자동 표시됩니다.
+       CURRENT PROJECT IMAGE FALLBACK
+       대표 이미지가 없거나 경로가 잘못된 경우 플레이스홀더를 표시합니다.
   ========================================================== -->
   <script>
     (() => {
-const paths = {
-  image: "assets/images/ARGO-project.jpg",
-  concept: "assets/docs/ARGO-project-concept.pdf"
-      };
-
-      // 대표 이미지: 파일이 없거나 깨지면 플레이스홀더 표시
       const projectImage = document.getElementById("currentProjectImage");
       const imagePlaceholder = document.getElementById("currentProjectImagePlaceholder");
 
@@ -592,47 +531,6 @@ const paths = {
       });
 
       projectImage.addEventListener("error", showImagePlaceholder);
-
-
-      // 같은 저장소에 파일이 존재하는지 확인
-      async function resourceExists(path) {
-        try {
-          const response = await fetch(path, {
-            method: "HEAD",
-            cache: "no-store"
-          });
-          return response.ok;
-        } catch (error) {
-          return false;
-        }
-      }
-
-
-      // 컨셉 아트 PDF
-      const conceptPanel = document.getElementById("conceptPanel");
-      const conceptLoading = document.getElementById("conceptLoading");
-      const conceptEmpty = document.getElementById("conceptEmpty");
-      const conceptReady = document.getElementById("conceptReady");
-      const conceptViewer = document.getElementById("conceptViewer");
-
-      let conceptChecked = false;
-
-      conceptPanel.addEventListener("toggle", async () => {
-        if (!conceptPanel.open || conceptChecked) return;
-        conceptChecked = true;
-
-        const exists = await resourceExists(paths.concept);
-        conceptLoading.hidden = true;
-
-        if (exists) {
-          conceptViewer.src = paths.concept + "#view=FitH";
-          conceptReady.hidden = false;
-        } else {
-          conceptEmpty.hidden = false;
-        }
-      });
-
-
     })();
   </script>
 
