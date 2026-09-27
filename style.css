@@ -1030,3 +1030,167 @@ summary:focus-visible {
     transition: none !important;
   }
 }
+
+/* =========================================================
+   CURRENT PROJECT - PROJECT RESOURCES
+   ========================================================= */
+
+.current-project-resources{
+  margin-top:18px;
+  padding-top:18px;
+
+  border-top:1px solid rgba(45,88,94,.13);
+}
+
+
+/* 상단 설명 */
+
+.current-project-resource-header{
+  display:flex;
+  align-items:flex-end;
+  justify-content:space-between;
+  gap:32px;
+
+  margin-bottom:14px;
+  padding:0 2px;
+}
+
+.current-project-resource-header h3{
+  margin:4px 0 0;
+
+  color:#132934;
+  font-size:20px;
+  line-height:1.3;
+}
+
+.current-project-resource-header > p{
+  max-width:520px;
+  margin:0;
+
+  color:#6b7e86;
+  font-size:12px;
+  line-height:1.7;
+
+  text-align:right;
+}
+
+
+/* 2개 자료 카드 */
+
+.current-project-resource-grid{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+
+  gap:14px;
+}
+
+
+/* 개별 카드 */
+
+.current-project-resource-card{
+  min-width:0;
+
+  border:1px solid rgba(65,103,110,.20);
+  border-radius:18px;
+
+  background:rgba(255,255,255,.76);
+
+  box-shadow:
+    0 8px 24px rgba(38,68,73,.035);
+}
+
+
+.current-project-resource-body{
+  padding:20px 22px;
+}
+
+
+.current-project-resource-body h4{
+  margin:4px 0 10px;
+
+  color:#102733;
+
+  font-size:18px;
+  line-height:1.35;
+}
+
+
+/* 설명 */
+
+.current-project-resource-description{
+  margin:0 0 15px;
+
+  color:#526971;
+
+  font-size:13px;
+  line-height:1.75;
+}
+
+
+/* 하단 작은 설명 */
+
+.current-project-resource-note{
+  margin:11px 0 0;
+
+  color:#819097;
+
+  font-size:10px;
+  line-height:1.65;
+}
+
+
+/* =========================================================
+   AI 활용 범위 표기
+   ========================================================= */
+
+.current-project-ai-note{
+  margin-top:13px;
+  padding-top:12px;
+
+  border-top:1px solid rgba(66,99,104,.12);
+
+  color:#65777e;
+}
+
+.current-project-ai-note strong{
+  display:block;
+
+  margin-bottom:4px;
+
+  color:#4d646b;
+
+  font-size:10px;
+  font-weight:700;
+  letter-spacing:.04em;
+}
+
+.current-project-ai-note p{
+  margin:0;
+
+  font-size:10px;
+  line-height:1.65;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media(max-width:760px){
+
+  .current-project-resource-header{
+    display:block;
+  }
+
+  .current-project-resource-header > p{
+    max-width:none;
+    margin-top:8px;
+
+    text-align:left;
+  }
+
+  .current-project-resource-grid{
+    grid-template-columns:1fr;
+  }
+
+}
