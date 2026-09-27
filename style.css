@@ -1030,167 +1030,312 @@ summary:focus-visible {
     transition: none !important;
   }
 }
-
 /* =========================================================
-   CURRENT PROJECT - PROJECT RESOURCES
+   17. CURRENT PROJECT - PROJECT SITE LINK
    ========================================================= */
 
-.current-project-resources{
-  margin-top:18px;
-  padding-top:18px;
-
-  border-top:1px solid rgba(45,88,94,.13);
+.current-project-image-link {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  color: inherit;
+  text-decoration: none;
 }
 
-
-/* 상단 설명 */
-
-.current-project-resource-header{
-  display:flex;
-  align-items:flex-end;
-  justify-content:space-between;
-  gap:32px;
-
-  margin-bottom:14px;
-  padding:0 2px;
+.current-project-image-link img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: center;
+  transition:
+    transform 0.35s ease,
+    filter 0.35s ease;
 }
 
-.current-project-resource-header h3{
-  margin:4px 0 0;
+.current-project-image-guide {
+  position: absolute;
+  right: 20px;
+  bottom: 18px;
 
-  color:#132934;
-  font-size:20px;
-  line-height:1.3;
+  padding: 8px 12px;
+
+  color: #ffffff;
+  background: rgba(9, 28, 39, 0.72);
+  border: 1px solid rgba(255, 255, 255, 0.72);
+  border-radius: 999px;
+
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+
+  opacity: 0;
+  transform: translateY(6px);
+
+  transition:
+    opacity 0.25s ease,
+    transform 0.25s ease;
 }
 
-.current-project-resource-header > p{
-  max-width:520px;
-  margin:0;
-
-  color:#6b7e86;
-  font-size:12px;
-  line-height:1.7;
-
-  text-align:right;
+.current-project-image-link:hover img,
+.current-project-image-link:focus-visible img {
+  transform: scale(1.015);
+  filter: brightness(0.82);
 }
 
-
-/* 2개 자료 카드 */
-
-.current-project-resource-grid{
-  display:grid;
-  grid-template-columns:repeat(2,minmax(0,1fr));
-
-  gap:14px;
+.current-project-image-link:hover .current-project-image-guide,
+.current-project-image-link:focus-visible .current-project-image-guide {
+  opacity: 1;
+  transform: translateY(0);
 }
 
-
-/* 개별 카드 */
-
-.current-project-resource-card{
-  min-width:0;
-
-  border:1px solid rgba(65,103,110,.20);
-  border-radius:18px;
-
-  background:rgba(255,255,255,.76);
-
-  box-shadow:
-    0 8px 24px rgba(38,68,73,.035);
+.current-project-image-link:focus-visible {
+  outline: 3px solid rgba(84, 125, 121, 0.28);
+  outline-offset: -3px;
 }
 
-
-.current-project-resource-body{
-  padding:20px 22px;
+.current-project-link-row {
+  margin-top: 16px;
 }
 
+.current-project-site-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
 
-.current-project-resource-body h4{
-  margin:4px 0 10px;
+  min-height: 40px;
+  padding: 9px 15px;
 
-  color:#102733;
+  color: #ffffff;
+  background: var(--accent-strong);
+  border: 1px solid var(--accent-strong);
+  border-radius: 999px;
 
-  font-size:18px;
-  line-height:1.35;
+  font-size: 0.8rem;
+  font-weight: 800;
+  text-decoration: none;
+
+  transition:
+    transform 0.18s ease,
+    background 0.18s ease,
+    box-shadow 0.18s ease;
 }
 
-
-/* 설명 */
-
-.current-project-resource-description{
-  margin:0 0 15px;
-
-  color:#526971;
-
-  font-size:13px;
-  line-height:1.75;
+.current-project-site-button:hover,
+.current-project-site-button:focus-visible {
+  color: #ffffff;
+  background: var(--primary);
+  border-color: var(--primary);
+  transform: translateY(-1px);
+  box-shadow: 0 7px 18px rgba(34, 76, 73, 0.14);
+  outline: none;
 }
 
-
-/* 하단 작은 설명 */
-
-.current-project-resource-note{
-  margin:11px 0 0;
-
-  color:#819097;
-
-  font-size:10px;
-  line-height:1.65;
+.current-project-site-button span {
+  transition: transform 0.18s ease;
 }
 
-
-/* =========================================================
-   AI 활용 범위 표기
-   ========================================================= */
-
-.current-project-ai-note{
-  margin-top:13px;
-  padding-top:12px;
-
-  border-top:1px solid rgba(66,99,104,.12);
-
-  color:#65777e;
-}
-
-.current-project-ai-note strong{
-  display:block;
-
-  margin-bottom:4px;
-
-  color:#4d646b;
-
-  font-size:10px;
-  font-weight:700;
-  letter-spacing:.04em;
-}
-
-.current-project-ai-note p{
-  margin:0;
-
-  font-size:10px;
-  line-height:1.65;
+.current-project-site-button:hover span,
+.current-project-site-button:focus-visible span {
+  transform: translateX(3px);
 }
 
 
 /* =========================================================
-   RESPONSIVE
+   18. CURRENT PROJECT - PROJECT RESOURCES
+   메인 프로젝트 카드 바로 아래의 보조 자료
    ========================================================= */
 
-@media(max-width:760px){
+.current-project-resources {
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(84, 125, 121, 0.14);
+}
 
-  .current-project-resource-header{
-    display:block;
+.current-project-resource-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 28px;
+
+  margin-bottom: 12px;
+  padding: 0 2px;
+}
+
+.current-project-resource-header h3 {
+  margin: 4px 0 0;
+  color: var(--primary-strong);
+  font-size: 1.12rem;
+}
+
+.current-project-resource-header > p {
+  max-width: 520px;
+  margin: 0;
+
+  color: var(--text-soft);
+  font-size: 0.78rem;
+  line-height: 1.7;
+  text-align: right;
+}
+
+.current-project-resources .project-resource-grid {
+  margin-top: 0;
+}
+
+.current-project-resources .resource-panel {
+  min-width: 0;
+  height: 100%;
+
+  background: rgba(255, 255, 255, 0.86);
+  box-shadow: 0 6px 18px rgba(30, 45, 55, 0.035);
+}
+
+.current-project-resources .resource-panel-body {
+  height: 100%;
+  padding: 20px 22px;
+}
+
+.current-project-resources .resource-panel-body h3 {
+  margin: 4px 0 10px;
+  color: var(--primary-strong);
+  font-size: 1.08rem;
+}
+
+.current-project-resources .resource-panel-body > p:not(.section-label):not(.resource-note) {
+  color: var(--text-sub);
+  font-size: 0.84rem;
+  line-height: 1.75;
+}
+
+.current-project-resources .document-buttons {
+  margin-top: 14px;
+}
+
+.current-project-resources .resource-note {
+  margin-top: 10px;
+  font-size: 0.72rem;
+  line-height: 1.65;
+}
+
+.planning-ai-note {
+  margin-top: 12px;
+  padding-top: 11px;
+
+  border-top: 1px solid rgba(84, 125, 121, 0.13);
+}
+
+.planning-ai-note strong {
+  display: block;
+  margin-bottom: 4px;
+
+  color: var(--accent-strong);
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+}
+
+.planning-ai-note p {
+  margin: 0;
+
+  color: var(--text-soft);
+  font-size: 0.72rem;
+  line-height: 1.65;
+}
+
+
+/* =========================================================
+   19. COMPATIBILITY FALLBACK
+   PROJECT RESOURCES가 실수로 </section> 밖에 놓여 있어도
+   Current Project 박스와 한 덩어리처럼 보이게 한다.
+   HTML 구조를 나중에 바로잡으면 이 규칙은 자동으로 적용되지 않는다.
+   ========================================================= */
+
+.current-project-section:has(+ .current-project-resources) {
+  margin-bottom: 0;
+  padding-bottom: 18px;
+
+  border-bottom-color: transparent;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+
+  box-shadow: none;
+}
+
+.current-project-section + .current-project-resources {
+  margin-top: -1px;
+  margin-bottom: 30px;
+  padding: 16px 32px 32px;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.94),
+      rgba(255, 255, 255, 0.98)
+    );
+
+  border: 1px solid var(--line);
+  border-top: 0;
+  border-radius: 0 0 var(--radius-xl) var(--radius-xl);
+
+  box-shadow: var(--shadow-sm);
+}
+
+
+/* =========================================================
+   20. CURRENT PROJECT - RESPONSIVE ADDITIONS
+   ========================================================= */
+
+@media (max-width: 1020px) {
+  .current-project-resource-header {
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 760px) {
+  .current-project-resource-header {
+    display: block;
   }
 
-  .current-project-resource-header > p{
-    max-width:none;
-    margin-top:8px;
-
-    text-align:left;
+  .current-project-resource-header > p {
+    max-width: none;
+    margin-top: 8px;
+    text-align: left;
   }
 
-  .current-project-resource-grid{
-    grid-template-columns:1fr;
+  .current-project-section + .current-project-resources {
+    padding: 14px 20px 24px;
+  }
+}
+
+@media (max-width: 520px) {
+  .current-project-image-guide {
+    right: 12px;
+    bottom: 12px;
+    padding: 7px 10px;
+    font-size: 0.64rem;
   }
 
+  .current-project-site-button {
+    width: 100%;
+  }
+
+  .current-project-resources {
+    margin-top: 14px;
+    padding-top: 14px;
+  }
+
+  .current-project-resources .resource-panel-body {
+    padding: 17px;
+  }
+
+  .current-project-section + .current-project-resources {
+    margin-bottom: 18px;
+    padding: 12px 20px 22px;
+
+    border-bottom-left-radius: 22px;
+    border-bottom-right-radius: 22px;
+  }
 }
